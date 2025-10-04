@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
@@ -15,12 +15,14 @@
   background: white;
   padding: 40px 60px;
   box-sizing: border-box;
-  border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .loginsignup-container h1 {
   margin: 20px 0px;
+  text-align: center;
+  color: #333;
 }
 
 .loginsignup-fields {
@@ -38,6 +40,12 @@
   outline: none;
   color: #5c5c5c;
   font-size: 18px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.loginsignup-fields input:focus {
+  border-color: #ff4141;
 }
 
 .loginsignup-container button {
@@ -50,7 +58,12 @@
   font-size: 24px;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.loginsignup-container button:hover {
+  background: #e63939;
 }
 
 .loginsignup-login {
@@ -85,4 +98,80 @@
 
 .loginsignup-agree input[type="checkbox"] {
   margin-top: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .loginsignup-container {
+    padding: 30px 40px;
+    margin: 20px;
+  }
+  
+  .loginsignup-fields input {
+    height: 65px;
+    font-size: 16px;
+  }
+  
+  .loginsignup-container button {
+    height: 65px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .loginsignup {
+    padding: 20px 15px;
+  }
+  
+  .loginsignup-container {
+    padding: 25px 30px;
+    margin: 10px;
+  }
+  
+  .loginsignup-container h1 {
+    font-size: 28px;
+  }
+  
+  .loginsignup-fields {
+    gap: 20px;
+  }
+  
+  .loginsignup-fields input {
+    height: 60px;
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  
+  .loginsignup-container button {
+    height: 60px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginsignup-container {
+    padding: 20px 25px;
+  }
+  
+  .loginsignup-container h1 {
+    font-size: 24px;
+  }
+  
+  .loginsignup-fields input {
+    height: 55px;
+    font-size: 14px;
+  }
+  
+  .loginsignup-container button {
+    height: 55px;
+    font-size: 16px;
+  }
+  
+  .loginsignup-login {
+    font-size: 14px;
+  }
+  
+  .loginsignup-agree {
+    font-size: 13px;
+  }
 }

@@ -1,7 +1,25 @@
 .hero {
-  height: 100hv;
+  min-height: 100vh;
   background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
   display: flex;
+  align-items: center;
+  padding: 0 5%;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 65, 65, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 65, 65, 0.1) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
 }
 
 .hero-left {
@@ -10,30 +28,50 @@
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  padding-left: 180px;
   line-height: 1.1;
+  position: relative;
+  z-index: 1;
+  animation: fadeInLeft 1.2s ease-out;
 }
 
 .hero-left h2 {
   color: #090909;
   font-size: 26px;
   font-weight: 600;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+  opacity: 0;
 }
 
 .hero-left p {
   color: #171717;
   font-size: 100px;
   font-weight: 700;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-left p:hover {
+  transform: translateX(10px);
+  color: #ff4141;
 }
 
 .hand-hand-icon {
   display: flex;
   align-items: center;
   gap: 20px;
+  animation: fadeInLeft 0.8s ease-out 0.6s both;
+  opacity: 0;
 }
 
 .hand-hand-icon img {
   width: 105px;
+  animation: bounce 2s infinite 1s;
+  transition: transform 0.3s ease;
+}
+
+.hand-hand-icon:hover img {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .hero-latest-btn {
@@ -49,6 +87,36 @@
   color: white;
   font-size: 22px;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-latest-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.hero-latest-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 65, 65, 0.4);
+}
+
+.hero-latest-btn:hover::before {
+  left: 100%;
+}
+
+.hero-latest-btn:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 .hero-right {
@@ -56,4 +124,115 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInRight 1.2s ease-out 0.3s both;
+  opacity: 0;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.hero-right img:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero {
+    padding: 0 3%;
+  }
+  
+  .hero-left p {
+    font-size: 80px;
+  }
+  
+  .hero-latest-btn {
+    width: 280px;
+    height: 65px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 5%;
+    gap: 50px;
+  }
+  
+  .hero-left {
+    order: 2;
+    padding-left: 0;
+  }
+  
+  .hero-right {
+    order: 1;
+  }
+  
+  .hero-left p {
+    font-size: 60px;
+  }
+  
+  .hero-left h2 {
+    font-size: 22px;
+  }
+  
+  .hero-latest-btn {
+    width: 250px;
+    height: 60px;
+    font-size: 18px;
+    margin: 20px auto 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 30px 4%;
+    gap: 30px;
+  }
+  
+  .hero-left p {
+    font-size: 45px;
+  }
+  
+  .hero-left h2 {
+    font-size: 20px;
+  }
+  
+  .hand-hand-icon img {
+    width: 80px;
+  }
+  
+  .hero-latest-btn {
+    width: 220px;
+    height: 55px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left p {
+    font-size: 35px;
+  }
+  
+  .hero-left h2 {
+    font-size: 18px;
+  }
+  
+  .hand-hand-icon img {
+    width: 60px;
+  }
+  
+  .hero-latest-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 14px;
+  }
 }
